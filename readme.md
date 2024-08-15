@@ -22,3 +22,32 @@ Run the command below to stop all previously running processes
 ```bash
 make stop
 ```
+
+# Notas sobre o htmx
+
+## hx-boost
+```html
+hx-boost="true"
+```
+
+## hx-get
+
+Faz um get para o endereço
+
+```html
+<p hx-get="/users">Users</p>
+```
+
+E subustitui o `<p>` com todo o conteudo de `users.templ`
+
+```go
+	@page() {
+		<h1>Users</h1>
+		<a hx-boost="true" href="/">Home</a>
+	}
+```
+
+Para resolver o problema 
+```html
+<p hx-get="/users" hx-target="body">Users</p>
+```

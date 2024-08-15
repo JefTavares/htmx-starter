@@ -3,5 +3,18 @@ package views
 templ Home() {
 	@page() {
 		<h1>Sample Home Page</h1>
+		<p
+			hx-get="/users"
+			hx-target="body"
+			hx-indicator="#loading"
+		>Users</p>
+		<a class="is-block" hx-post="/stock" hx-target="body">Stock</a>
+		<div id="loading" class="htmx-indicator">
+			Carregando...
+		</div>
 	}
 }
+
+//enquanto a respota do meu get nao chega ele vai habilitar a div id="loading"
+//por padrão ele não aparece por conta da class="htmx-indicator"
+//ou seja o <p> controla a <div>

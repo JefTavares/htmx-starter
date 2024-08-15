@@ -1,0 +1,23 @@
+package views
+
+import "fmt"
+
+templ Stock(price float64) {
+	@page() {
+		//de tempos em tempo verifico se teve alguma modificação
+		<div
+			id="stock-card"
+			class="card"
+			hx-post="/stock"
+			hx-select="#stock-card"
+			hx-swap="outerHTML"
+			hx-trigger="every 1s"
+		>
+			<div class="card-content">
+				<div class="content">
+					R$ { fmt.Sprintf("%.2f", price) }
+				</div>
+			</div>
+		</div>
+	}
+}

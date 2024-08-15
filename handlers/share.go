@@ -7,6 +7,7 @@ import (
 	"github.com/a-h/templ"
 )
 
+// handler, bem simples, tipo um middleware que retorna um erro
 type HTTPHandler func(w http.ResponseWriter, r *http.Request) error
 
 func (h HTTPHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
